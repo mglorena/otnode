@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+    <% include include/head %>
+  </head>
+  <body>
+    <% include include/navigation %>
+
+    <div class="container p-5">
+      <div class="row">
+        <div class="col-sm-4 offset-md-4">
+                <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Ej. Energía" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                          <button class="btn btn-primary" type="button" id="button-addon2">Search</button>
+                        </div>
+                      </div>
+            
+        </div>
+      </div>
+    </div>
+
+<div class="row">
+  <div class="col-md-6 mt-4 text center">
+    <table class="table table-striped">
+      <tr>
+        <th>Username</th>
+        <th>FirstName</th>
+      </tr>
+      <%=search      %>
+      
+    </table>
+  </div>
+</div>
+    <% include include/footer %>
+  </body>
+</html>

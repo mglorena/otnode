@@ -128,8 +128,13 @@ a {
   -o-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
+.list-images li a{
+  color: #FFF;
+  
+  
+}
 
-.list-images li span {
+.list-images li span  {
   position: relative;
   top: 40px;
 }
