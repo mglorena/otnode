@@ -12,25 +12,53 @@
       <div class="row">
         <div class="col-sm-4 offset-md-4">
                 <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Ej. Energía" aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <div class="input-group-append">
-                          <button class="btn btn-primary" type="button" id="button-addon2">Search</button>
+                    
+                       
+                          <form action="/search/send" class="search-form">
+                            <!--<i class="fas fa-search"></i>
+                            <input type="search" class="form-control" name="term" placeholder="Ej. Energía">
+                            <div class="input-group-append">
+                            <input type="submit" class="btn btn-primary" value="Search">
+                          </div>-->
+                                   
+                                      <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+                                        <div class="input-group">
+                                          <div class="input-group-prepend">
+                                            <button id="button-addon2" type="submit" class="btn btn-link text-warning"><i class="fa fa-search"></i></button>
+                                          </div>
+                                          <input type="search" placeholder="Ej. Energía" aria-describedby="button-addon2" class="form-control border-0 bg-light">
+                                        </div>
+                                      </div>
+                                    </form>
                         </div>
-                      </div>
+                      
             
         </div>
       </div>
     </div>
 
-<div class="row">
-  <div class="col-md-6 mt-4 text center">
-    <table class="table table-striped">
-      <tr>
-        <th>Username</th>
-        <th>FirstName</th>
+<div class="container">
+    <table  class="table  table-striped table-bordered">
+      <thead class="thead-light">
+        <tr  class="table-success">
+          <td >UNIDAD</td>
+          <td >DEPENDENCIA</td>
+          <td >SERVICIO</td>
+          <td >RESPONSABLE</td>
+          <td >CONTACTO</td>
       </tr>
-      <%=search      %>
-      
+    </thead>
+    <tbody>
+      <%for (var i = 0; i < search.length; i++) {  console.log(search[i].Unidad) ;%>
+        <tr>
+          <td><%= search[i].Unidad %></td>
+          <td><%= search[i].Dependencia %></td>
+          <td><%= search[i].Servicio %></td>
+          <td><%= search[i].Responsable %></td>
+          <td><%= search[i].Contacto %></td>
+        </tr>    
+      <% } %>
+    </tbody>
     </table>
   </div>
 </div>
