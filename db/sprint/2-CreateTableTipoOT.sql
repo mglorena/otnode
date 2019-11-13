@@ -1,0 +1,4 @@
+CREATE TABLE `ot`.`TipoOT` (
+  `TipoOT` INT NOT NULL AUTO_INCREMENT,
+  `Descripcion` VARCHAR(125) NOT NULL,
+  PRIMARY KEY (`TipoOT`));
