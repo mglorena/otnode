@@ -48,9 +48,9 @@ a {
   left: 0;
   bottom: 0;
   width: 100%;
-  
-  
+   height: 30px; 
   text-align: center;
+  font-size: 0.3em;
 }
 /** ==========================================
 * Contendor Principal 
@@ -78,7 +78,10 @@ a {
   font-size: 0.5em;
   font-weight: 700;
 }
+.space{
 
+  height: 40px;
+}
 /* Lista de Categorias 
 --------------------------------------------*/
 #services li span a{
