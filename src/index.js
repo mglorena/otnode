@@ -3,6 +3,8 @@ const morgan = require('morgan');
 const path = require('path');
 const app = express();
 const helmet = require('helmet');
+
+
 // settings
 app.use(helmet());
 app.set('port', process.env.PORT || 3000);
@@ -11,6 +13,9 @@ app.set('view engine', 'ejs');
 
 // middlewares
 app.use(morgan('dev'));
+
+// modules
+app.use(require('./modules'));
 
 // routes
 app.use(require('./routes'));

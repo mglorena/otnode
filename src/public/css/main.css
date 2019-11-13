@@ -119,3 +119,10 @@ background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, F
 .link-pdf{
   color:black;
 }
+.filter-ot{
+  color:black;
+  text-transform: capitalize;
+}
+input.text-search{
+  width: 500px;
+}
