@@ -46,16 +46,22 @@
           <td >SERVICIO</td>
           <td >RESPONSABLE</td>
           <td >CONTACTO</td>
+         
       </tr>
     </thead>
     <tbody>
-      <%for (var i = 0; i < search.length; i++) {  console.log(search[i].Unidad) ;%>
+      <%for (var i = 0; i < search.length; i++) {  
+        
+        
+        
+        %>
         <tr>
-          <td><%= search[i].Unidad %></td>
-          <td><%= search[i].Dependencia %></td>
-          <td><%= search[i].Servicio %></td>
-          <td><%= search[i].Responsable %></td>
-          <td><%= search[i].Contacto %></td>
+          <td><%= search[i].Unidad.replace(/<[^>]*>?/gm, '') %></td>
+          <td><%= search[i].Dependencia.replace(/<[^>]*>?/gm, '') %></td>
+          <td><%= search[i].Servicio.replace(/<[^>]*>?/gm, '') %> <a href="#" class="link-pdf">leer mas...</a></td>
+          <td><%= search[i].Responsable.replace(/<[^>]*>?/gm, '') %></td>
+          <td><%= search[i].Contacto.replace(/<[^>]*>?/gm, '') %></td>
+          
         </tr>    
       <% } %>
     </tbody>

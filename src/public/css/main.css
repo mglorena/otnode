@@ -116,3 +116,6 @@ background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, F
   vertical-align: middle;
   text-align: center;
 }
+.link-pdf{
+  color:black;
+}

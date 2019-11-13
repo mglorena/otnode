@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../database');
 
+
 router.get('/', (req, res) => {
   res.render('index', { title: 'Ofertas Tecnológicas - UNSa' });
 });
@@ -27,6 +28,7 @@ function searchOt(inputText)
   let { term } = req.query;
   const inputText = (!term?'':term);
   const result = await searchOt(inputText);
+ 
   res.render('search',{search:result[0], title: 'Ofertas Tecnológicas - UNSa' });
 });
 
