@@ -1,4 +1,4 @@
-CREATE TABLE `ot`.`new_table` (
+CREATE TABLE `ot`.`Files` (
   `fileId` INT NOT NULL AUTO_INCREMENT,
   `otId` INT NOT NULL,
   `FilePath` VARCHAR(255) NULL,

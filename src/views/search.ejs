@@ -83,7 +83,8 @@
         <tr>
           <td><%= search[i].Unidad.replace(/<[^>]*>?/gm, '') %></td>
           <td><%= search[i].Dependencia.replace(/<[^>]*>?/gm, '') %></td>
-          <td><%= search[i].Servicio.replace(/<[^>]*>?/gm, '') %> <a href="#" class="link-pdf">leer mas...</a></td>
+          <td><%= search[i].Servicio.replace(/<[^>]*>?/gm, '') %> 
+            <a href="#" class="link-pdf"><%= search[i].OfertaId;%>leer mas...</a></td>
           <td><%= search[i].Responsable.replace(/<[^>]*>?/gm, '') %></td>
           <td><%= search[i].Contacto.replace(/<[^>]*>?/gm, '') %></td>
           
