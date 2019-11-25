@@ -288,10 +288,28 @@ INSERT INTO `Categorias` VALUES (1,'Todas',1,''),(2,'Tecnologí­as Ambientales
 (9,'Cultura',1,''),
 (10,'Contenidos Educativos',1,''),
 (11,'Educación',1,''),
-(12,'MinerУía',1,''),
+(12,'Minería',1,''),
 (13,'Energías No Convencionales',1,''),
 (14,'Petroleo',3,NULL),
 (15,'Gas',3,NULL);
+
+ALTER TABLE `ot`.`Categorias` 
+ADD COLUMN `tag` VARCHAR(45) NULL AFTER `Active`;
+
+
+USE `ot`;
+DROP procedure IF EXISTS `ot_GetAllCat`;
+
+DELIMITER $$
+USE `ot`$$
+CREATE PROCEDURE `ot_GetAllCat` ()
+BEGIN
+   SELECT 
+		CategoriaId, Nombre, CategoriaPadreId
+     FROM Categorias;
+END$$
+
+DELIMITER ;
 
 /*!50003 DROP PROCEDURE IF EXISTS `ot_search` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -304,7 +322,7 @@ INSERT INTO `Categorias` VALUES (1,'Todas',1,''),(2,'Tecnologí­as Ambientales
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `ot_search`(
-
+IN catId INT,
 IN inputText varchar(300),
 IN inputText2 varchar(300)
 
@@ -333,29 +351,24 @@ WHERE
 
  OfertasTecno.Estado ='active' AND
 
-   (Unidades.Nombre LIKE CONCAT('%',inputText,'%') or Unidades.Nombre like CONCAT('%',inputText2,'%')
-    or Dependencias.Nombre LIKE CONCAT('%',inputText,'%') or Dependencias.Nombre like CONCAT('%',inputText2,'%')
-    or Facultades.Nombre like CONCAT('%',inputText,'%') or Facultades.Nombre like CONCAT('%',inputText2,'%')
-   or 
-     OfertasTecno.Servicio like CONCAT('%',inputText,'%') COLLATE utf8_spanish_ci or OfertasTecno.Servicio like CONCAT('%',inputText2,'%')
-   or CONCAT(Personas.Apellido,' , ', Personas.Nombre) like CONCAT('%',inputText,'%') or CONCAT(Personas.Apellido,' , ', Personas.Nombre) like CONCAT('%',inputText2,'%')
+	 (Unidades.Nombre LIKE CONCAT('%',inputText,'%') or Unidades.Nombre like CONCAT('%',inputText2,'%')
+	 or Dependencias.Nombre LIKE CONCAT('%',inputText,'%') or Dependencias.Nombre like CONCAT('%',inputText2,'%')
+	 or Facultades.Nombre like CONCAT('%',inputText,'%') or Facultades.Nombre like CONCAT('%',inputText2,'%')
+	 or OfertasTecno.Servicio like CONCAT('%',inputText,'%') COLLATE utf8_spanish_ci or OfertasTecno.Servicio like CONCAT('%',inputText2,'%')
+	 or CONCAT(Personas.Apellido,' , ', Personas.Nombre) like CONCAT('%',inputText,'%') or CONCAT(Personas.Apellido,' , ', Personas.Nombre) like CONCAT('%',inputText2,'%')
      or Unidades.SitioWeb like CONCAT('%',inputText,'%') or Unidades.SitioWeb like CONCAT('%',inputText2,'%'))
-  
+
 GROUP BY  
   
   Unidades.Descripcion,
   Dependencias.Nombre,
   Facultades.Nombre,
   OfertasTecno.Servicio,
-  -- Personas.Apellido,
-  -- Personas.Nombre,
   Unidades.Domicilio,
   Unidades.Telefono,
   Unidades.Email,
-
   Unidades.SitioWeb
-
-order by Unidades.Descripcion asc, Dependencias.Nombre asc,Facultades.Nombre asc; 
+   Order by Unidades.Descripcion asc, Dependencias.Nombre asc,Facultades.Nombre asc;
 
 END ;;
 DELIMITER ;
