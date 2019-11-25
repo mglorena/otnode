@@ -17,6 +17,7 @@ router.get('/contact', (req, res) => {
 function searchOt(category, inputText)
 {
   const query = "call ot_search("+category+",'"+inputText+"','"+inputText+"');"
+  console.log(query);
   const result =  pool.query(query);
   return result;
 }
@@ -24,7 +25,9 @@ function searchOt(category, inputText)
    let { cat } = req.query;
    const category = (!cat?'1':cat);
    const inputText = (!term?'':term);
-   console.log(inputText);
+   console.log("texto de busqueda : " + inputText);
+   console.log("Categoria de busqueda ; "  + category);
+
    const result = await searchOt(category, inputText);
    res.render('search',{search:result[0], title: 'Ofertas Tecnológicas - UNSa'});
  });
@@ -33,7 +36,9 @@ function searchOt(category, inputText)
   let { term } = req.query;
   const category = (!cat?'1':cat);
   const inputText = (!term?'':term);
-  const result = await searchOt('1', inputText);
+  console.log("Send:texto de busqueda : " + inputText);
+  console.log("Send: Categoria de busqueda ; "  + category);
+  const result = await searchOt(category, inputText);
   res.render('search',{search:result[0], title: 'Ofertas Tecnológicas - UNSa' ,catId : category});
 });
 

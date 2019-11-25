@@ -297,6 +297,34 @@ ALTER TABLE `ot`.`Categorias`
 ADD COLUMN `tag` VARCHAR(45) NULL AFTER `Active`;
 
 
+DROP TABLE IF EXISTS `transOTCat`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `transOTCat` (
+  `CategoriaId` int(11) NOT NULL,
+  `OfertaTecnoId` int(11) NOT NULL,
+  PRIMARY KEY (`CategoriaId`,`OfertaTecnoId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `transOTCat`
+--
+
+LOCK TABLES `transOTCat` WRITE;
+/*!40000 ALTER TABLE `transOTCat` DISABLE KEYS */;
+INSERT INTO `transOTCat` VALUES (6,1),(6,2),(6,3),(6,4),(6,5),(6,6),(6,7),(6,8),(6,9),(13,11),(13,12),(13,15),(13,16),(13,17);
+/*!40000 ALTER TABLE `transOTCat` ENABLE KEYS */;
+UNLOCK TABLES;
+
+CREATE TABLE `TiposdeOfertas` (
+  `TipoOferta` int(11) NOT NULL,
+  `Nombre` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
+  PRIMARY KEY (`TipoOferta`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+
+
 USE `ot`;
 DROP procedure IF EXISTS `ot_GetAllCat`;
 
@@ -321,7 +349,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ot_search`(
+CREATE PROCEDURE `ot_search`(
 IN catId INT,
 IN inputText varchar(300),
 IN inputText2 varchar(300)
@@ -346,6 +374,7 @@ LEFT JOIN Dependencias ON Dependencias.DependenciaId = OfertasTecno.DependenciaI
 INNER JOIN transOTResp ON transOTResp.OfertaTecnoId = OfertasTecno.OfertaId
 INNER JOIN Personas ON Personas.PersonaId = transOTResp.ResponsableId
 INNER JOIN Facultades ON Facultades.FacultadId = Dependencias.FacultadId
+LEFT JOIN transOTCat ON transOTCat.OfertaTecnoId = OfertasTecno.OfertaId
 
 WHERE 
 
@@ -357,7 +386,8 @@ WHERE
 	 or OfertasTecno.Servicio like CONCAT('%',inputText,'%') COLLATE utf8_spanish_ci or OfertasTecno.Servicio like CONCAT('%',inputText2,'%')
 	 or CONCAT(Personas.Apellido,' , ', Personas.Nombre) like CONCAT('%',inputText,'%') or CONCAT(Personas.Apellido,' , ', Personas.Nombre) like CONCAT('%',inputText2,'%')
      or Unidades.SitioWeb like CONCAT('%',inputText,'%') or Unidades.SitioWeb like CONCAT('%',inputText2,'%'))
-
+  AND 
+  (catId IS NULL OR transOTCat.CategoriaId = catId)
 GROUP BY  
   
   Unidades.Descripcion,
@@ -369,6 +399,8 @@ GROUP BY
   Unidades.Email,
   Unidades.SitioWeb
    Order by Unidades.Descripcion asc, Dependencias.Nombre asc,Facultades.Nombre asc;
+
+
 
 END ;;
 DELIMITER ;
