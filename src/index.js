@@ -17,12 +17,17 @@ app.use(morgan('dev'));
 
 
 // routes
-app.use(require('./routes'));
+//app.use(require('./routes'));
+app.use(require('./routes/index'));
+app.use(require('./routes/search'));
+
+
+
 
 // static files
 app.use(express.static(path.join(__dirname, 'public')));
 
 // listening the Server
 app.listen(app.get('port'), () => {
-  console.log('Server on port', app.get('port'));
+    console.log('Server on port', app.get('port'));
 });

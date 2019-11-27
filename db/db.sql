@@ -357,7 +357,7 @@ IN inputText2 varchar(300)
 )
 BEGIN
 SET NAMES 'utf8';
-
+IF catId=1 THEN SET catId= NULL; END IF;
 SELECT 
   Unidades.Descripcion as 'Unidad',
   Dependencias.Nombre as 'Dependencia',
@@ -401,8 +401,7 @@ GROUP BY
    Order by Unidades.Descripcion asc, Dependencias.Nombre asc,Facultades.Nombre asc;
 
 
-
-END ;;
+END;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;

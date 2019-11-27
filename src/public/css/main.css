@@ -1,128 +1,144 @@
 body {
-  background: #134E5E;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #71B280, #134E5E);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #71B280, #134E5E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    background: #134E5E;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #71B280, #134E5E);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #71B280, #134E5E);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .navbar-brand {
-  font-family: 'Spicy Rice', cursive;
-  font-size: 1.5rem;
+    font-family: 'Spicy Rice', cursive;
+    font-size: 1.5rem;
 }
 
 .nav-link {
-  text-transform: uppercase;
-  font-family: 'Spicy Rice', cursive;
+    text-transform: uppercase;
+    font-family: 'Spicy Rice', cursive;
 }
 
 header img {
-  width: 60%;
+    width: 60%;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-
-ul {list-style-type: none;}
+ul {
+    list-style-type: none;
+}
 
 a {
-  color: #1396e1; 
-  text-decoration: none;
+    color: #1396e1;
+    text-decoration: none;
 }
 
 .clearfix:after {
-  content: '';
-  display: block;
-  width: 0;
-  height: 0;
-  clear: both;
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    clear: both;
 }
 
 .footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-   height: 30px; 
-  text-align: center;
-  font-size: 0.3em;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    font-size: 0.3em;
 }
+
+
 /** ==========================================
 * Contendor Principal 
 =============================================*/
+
 .main-wrapper {
-  display: block;
-  margin: 50px auto 40px;
-  width: 960px;
+    display: block;
+    margin: 50px auto 40px;
+    width: 960px;
 }
 
 .main-wrapper input[type="radio"] {
-  display: none;
+    display: none;
 }
+
 
 /* Titulo 
 ---------------------*/
+
 .main-title {
-  color: #242424;
-  font: 400 3.2em 'Open Sans', Arial, Sans-serif, Verdana;
-  text-align: center;
+    color: #242424;
+    font: 400 3.2em 'Open Sans', Arial, Sans-serif, Verdana;
+    text-align: center;
 }
 
 .main-title a {
-  color: #16515F;
-  font-size: 0.5em;
-  font-weight: 700;
+    color: #16515F;
+    font-size: 0.5em;
+    font-weight: 700;
 }
-.space{
 
-  height: 40px;
+.space {
+    height: 40px;
 }
+
+
 /* Lista de Categorias 
 --------------------------------------------*/
-#services li span a{
-  
-  display: block;
-  margin-top: 15px;
-  text-align: center;
-  color:#16515F;
-}
-#services li{
-  display: inline-block;
-  width: 200px;
-  height: 120px;
-  border: 4px solid #FFF;
-  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,0.15);
-  box-shadow: 0 0 0 1px rgba(0,0,0,0.15);
-  color: #FFF;
-  font-size: 1.3em;
-  font-weight: 700;
-  -webkit-transform: scale(0.9);
-  -ms-transform: scale(0.9);
-  -o-transform: scale(0.9);
-  transform: scale(0.9);
-  -webkit-transition: all 0.4s ease;
-  -o-transition: all 0.4s ease;
-  transition: all 0.4s ease;
-  background: #ECE9E6;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-  color: #FFF;  
-  vertical-align: middle;
-  text-align: center;
+#services li span a {
+    display: block;
+    margin-top: 15px;
+    text-align: center;
+    color: #16515F;
 }
-.link-pdf{
-  color:black;
+
+#services li {
+    display: inline-block;
+    width: 200px;
+    height: 120px;
+    border: 4px solid #FFF;
+    -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+    color: #FFF;
+    font-size: 1.3em;
+    font-weight: 700;
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+    transform: scale(0.9);
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    background: #ECE9E6;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFFFFF, #ECE9E6);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #FFF;
+    vertical-align: middle;
+    text-align: center;
 }
-.filter-ot{
-  color:black;
-  text-transform: capitalize;
+
+.link-pdf {
+    color: black;
 }
-input.text-search{
-  width: 500px;
+
+.filter-ot {
+    color: black;
+    text-transform: capitalize;
+}
+
+input.text-search {
+    width: 500px;
 }

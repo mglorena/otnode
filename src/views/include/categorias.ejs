@@ -1,22 +1,22 @@
 <div class="container">
 
-    
+
     <section id="services">
         <header>
-          <!--  <h1>Categorias</h1>-->
-          <br/>
+            <!--  <h1>Categorias</h1>-->
+            <br/>
         </header>
         <ul>
-                <%for (var i = 0; i < categorias.length; i++) {  %>
-            <li><span><a href="search/send?cat=<%=categorias[i].CategoriaId%>"><%= categorias[i].Nombre %></a></span></li>
-            <% } %>
-            <!--<li><span><a href="search/send?term=petroleo">Energías Convencionales</a></span><br/></li>
+            <%for (var i = 0; i < categorias.length; i++) {  %>
+                <li><span><a href="search/send?cat=<%=categorias[i].CategoriaId%>"><%= categorias[i].Nombre %></a></span></li>
+                <% } %>
+                    <!--<li><span><a href="search/send?term=petroleo">Energías Convencionales</a></span><br/></li>
             <li><span><a href="search/send?term=renovables">Energías No Convencionales</a></span></li>
             <li><span><a href="search/send?term=agua">Agua</a></span></li>
             <li><span><a href="search/send?term=alimentos">Alimentos</a></span></li>
             <li><span><a href="search/send?term=salud">Salud</a></span></li>
             <li><span><a href="search/send?term=comunicaciones">Comunicaciones</a></span></li>-->
-        </ul>        
+        </ul>
     </section>
-     
+
 </div>

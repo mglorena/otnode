@@ -1,104 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <title>Search</title>
     <% include include/head %>
-  </head>
-  <body>
+</head>
+
+<body>
     <% include include/navigation %>
+        <div class="container p-5">
+            <div class="row">
 
-    <div class="container p-5">
-      <div class="row">
-         
-        <div class="col-sm-4 offset-md-4">
-            
-                <div class="input-group mb-3">
-                    
-                
-                          <form action="/search/send" class="search-form">
-                            <!--<i class="fas fa-search"></i>
-                            <input type="search" class="form-control" name="term" placeholder="Ej. Energía">
-                            <div class="input-group-append">
-                            <input type="submit" class="btn btn-primary" value="Search">
-                          </div>-->
-                                   
-                                      <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
-                                        <div class="input-group">
-                                          <div class="input-group-prepend">
-                                            <button id="button-addon2" type="submit" class="btn btn-link text-warning"><i class="fa fa-search"></i></button>
-                                         
-                                          <input type="search" name="term" placeholder="Ej. Energía" aria-describedby="button-addon2" class="form-control border-0 bg-light text-search">
-                                         <input type="hidden" name="cat" value=<%= catId %>>
-                                        </div> </div>
-                                      </div>
-                                    </form>
-                        </div>
-                      
-            
+                <div class="col-sm-4 offset-md-4">
+
+                    <div class="input-group mb-3">
+
+                        <form action="/search/send" class="search-form">
+
+                            <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <button id="button-addon2" type="submit" class="btn btn-link text-warning"><i class="fa fa-search"></i></button>
+
+                                        <input type="search" name="term" placeholder="Ej. Energía" aria-describedby="button-addon2" class="form-control border-0 bg-light text-search">
+                                        <input type="hidden" name="cat" value=<%=catId %>>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
         </div>
-      </div>
-     
-        
+        <div class="container">
+            <nav class="navbar navbar-expand-sm">
+                Filtrar por :
+                <!-- Links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link filter-ot" href="#">Ensayo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link filter-ot" href="#">Asesoramiento</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link filter-ot" href="#">Desarrollo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link filter-ot" href="#">Investigación concertada</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link filter-ot" href="#">Gestión tecnológica</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link filter-ot" href="#">Capacitación</a>
+                    </li>
+                </ul>
 
-    </div>
-    <div class="container">
-    <nav class="navbar navbar-expand-sm">
-        Filtrar por :
-        <!-- Links -->
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link filter-ot" href="#">Ensayo</a>
-          </li>
-          <li class="nav-item"> 
-            <a class="nav-link filter-ot" href="#">Calibración</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link filter-ot" href="#">Certificación</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link filter-ot" href="#">Asistencia Técnica</a>
-            </li>
-        </ul>
-      
-      </nav>
-    </div>
-<div class="container">
-    <table  class="table  table-striped table-bordered">
-      <thead class="thead-light">
-        <tr  class="table-success">
-          <td >UNIDAD</td>
-          <td >DEPENDENCIA</td>
-          <td >SERVICIO</td>
-          <td >RESPONSABLE</td>
-          <td >CONTACTO</td>
-         
-      </tr>
-    </thead>
-    <tbody>
-      <%for (var i = 0; i < search.length; i++) {  
+            </nav>
+        </div>
+        <div class="container">
+            <table class="table  table-striped table-bordered">
+                <thead class="thead-light">
+                    <tr class="table-success">
+                        <td>UNIDAD</td>
+                        <td>DEPENDENCIA</td>
+                        <td>SERVICIO</td>
+                        <td>RESPONSABLE</td>
+                        <td>CONTACTO</td>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <%for (var i = 0; i < search.length; i++) {  
         
         
         
         %>
-        <tr>
-          <td><%= search[i].Unidad.replace(/<[^>]*>?/gm, '') %></td>
-          <td><%= search[i].Dependencia.replace(/<[^>]*>?/gm, '') %></td>
-          <td><%= search[i].Servicio.replace(/<[^>]*>?/gm, '') %> 
-            <a href="#" class="link-pdf"><%= search[i].OfertaId;%>leer mas...</a></td>
-          <td><%= search[i].Responsable.replace(/<[^>]*>?/gm, '') %></td>
-          <td><%= search[i].Contacto.replace(/<[^>]*>?/gm, '') %></td>
-          
-        </tr>    
-      <% } %>
-    </tbody>
-    </table>
-  </div>
-</div>
-<div class="space">
- 
+                        <tr>
+                            <td>
+                                <%= search[i].Unidad.replace(/<[^>]*>?/gm, '') %>
+                            </td>
+                            <td>
+                                <%= search[i].Dependencia.replace(/<[^>]*>?/gm, '') %>
+                            </td>
+                            <td>
+                                <%= search[i].Servicio.replace(/<[^>]*>?/gm, '') %>
+                                    <a href="#" class="link-pdf">
+                                        <%= search[i].OfertaId;%>leer mas...</a>
+                            </td>
+                            <td>
+                                <%= search[i].Responsable.replace(/<[^>]*>?/gm, '') %>
+                            </td>
+                            <td>
+                                <%= search[i].Contacto.replace(/<[^>]*>?/gm, '') %>
+                            </td>
 
-</div>
-    <% include include/footer %>
-  </body>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+        </div>
+        </div>
+        <div class="space">
+        </div>
+        <% include include/footer %>
+</body>
+
 </html>
